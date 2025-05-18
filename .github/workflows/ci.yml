@@ -1,11 +1,15 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  test:
+  unit:
+    name: Run Jest unit tests
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -13,3 +17,23 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run test:ci
+
+  e2e:
+    name: Run Cypress E2E tests
+    runs-on: ubuntu-latest
+    needs: unit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - name: Start dev server and run Cypress
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm run dev
+          wait-on: 'http://localhost:5173'
+          wait-on-timeout: 60_000  # ждём до 60 сек
+          spec: 'cypress/e2e/*.cy.ts'
+
+# -- позже можно добавить блок newman для API-тестов --
