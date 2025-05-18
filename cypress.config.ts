@@ -1,9 +1,11 @@
-import { defineConfig } from "cypress";
+// cypress.config.ts
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    // Путь указывает на ваш локальный Vite-сервер
+    baseUrl: 'http://localhost:5173',
+    specPattern: 'cypress/e2e/**/*.cy.ts',
+    supportFile: 'cypress/support/e2e.ts',
   },
 });
