@@ -1,0 +1,17 @@
+{
+    "products": [
+      { "id": "prod_1", "title": "Chair" },
+      { "id": "prod_2", "title": "Table" },
+      { "id": "prod_3", "title": "Table" },
+      { "id": "prod_4", "title": "Table" },
+      { "id": "prod_5", "title": "Table" },
+      { "id": "prod_6", "title": "Table" },
+      { "id": "prod_7", "title": "Table" },
+      { "id": "prod_8", "title": "Table" }
+    ],
+    "users": [
+      { "username": "user", "password": "pass" }
+    ],
+    "carts": []
+  }
+  
