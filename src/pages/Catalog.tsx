@@ -1,21 +1,32 @@
-import React from 'react';
-import { ProductCard } from '../components/ProductCard';
+import React, { useEffect, useState } from 'react';
+import NavBar from '../components/NavBar';  // ← default import
 
-const mockProducts = [
-  { id: '1', title: 'Товар A' },
-  { id: '2', title: 'Товар B' },
-];
+interface Product { id: string; title: string; }
 
-export const Catalog: React.FC = () => (
-  <div>
-    <h1>Каталог</h1>
-    {mockProducts.map((p) => (
-      <ProductCard
-        key={p.id}
-        id={p.id}
-        title={p.title}
-        onAdd={() => console.log(`Добавили ${p.title}`)}
-      />
-    ))}
-  </div>
-);
+const CatalogPage: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/products')
+      .then(r => r.json())
+      .then(setProducts);
+  }, []);
+
+  return (
+    <>
+   
+      <main className="p-8">
+        <h1 className="text-2xl mb-4">Каталог</h1>
+        <ul className="grid grid-cols-3 gap-4">
+          {products.map(p => (
+            <li key={p.id} data-testid="product-card" className="border p-4">
+              {p.title}
+            </li>
+          ))}
+        </ul>
+      </main>
+    </>
+  );
+};
+
+export default CatalogPage;
