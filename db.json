@@ -1,17 +1,190 @@
 {
-    "products": [
-      { "id": "prod_1", "title": "Chair" },
-      { "id": "prod_2", "title": "Table" },
-      { "id": "prod_3", "title": "Table" },
-      { "id": "prod_4", "title": "Table" },
-      { "id": "prod_5", "title": "Table" },
-      { "id": "prod_6", "title": "Table" },
-      { "id": "prod_7", "title": "Table" },
-      { "id": "prod_8", "title": "Table" }
-    ],
-    "users": [
-      { "username": "user", "password": "pass" }
-    ],
-    "carts": []
-  }
-  
+  "products": [
+    {
+      "id": "prod_1",
+      "title": "Chair"
+    },
+    {
+      "id": "prod_2",
+      "title": "Table"
+    },
+    {
+      "id": "prod_3",
+      "title": "Table"
+    },
+    {
+      "id": "prod_4",
+      "title": "Table"
+    },
+    {
+      "id": "prod_5",
+      "title": "Table"
+    },
+    {
+      "id": "prod_6",
+      "title": "Table"
+    },
+    {
+      "id": "prod_7",
+      "title": "Table"
+    },
+    {
+      "id": "prod_8",
+      "title": "Table"
+    }
+  ],
+  "users": [
+    {
+      "username": "user",
+      "password": "pass",
+      "id": "1af6"
+    }
+  ],
+  "carts": [
+    {
+      "id": "a7bf",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "e32b",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "6233",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "fa56",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9e9a",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "c9ab",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "70bb",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "17b7",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "1c4c",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "d017",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "5983",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9a1b",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "3dc7",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "207a",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9212",
+      "items": [
+        {
+          "productId": "prod_1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "e025",
+      "product_id": "prod_1",
+      "quantity": 1
+    },
+    {
+      "id": "215c",
+      "product_id": "prod_1",
+      "quantity": 1
+    }
+  ]
+}
