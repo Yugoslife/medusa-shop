@@ -30,7 +30,6 @@ const SearchPage: React.FC = () => {
 
   return (
     <>
-      <NavBar />
       <main className="p-8">
         <h1 className="text-2xl mb-4">Поиск</h1>
         <form onSubmit={handleSearch}>

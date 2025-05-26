@@ -5,6 +5,7 @@ import CatalogPage from './pages/Catalog';
 import SearchPage from './pages/Search';
 import BasketPage from './pages/Basket';
 import LoginPage from './pages/Login';
+import ProductDetailPage from './pages/ProductDetail';
 
 
 const App: React.FC = () => (
@@ -15,6 +16,7 @@ const App: React.FC = () => (
       <Route path="/login" element={<LoginPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/catalog" element={<CatalogPage />} />
+      <Route path="/catalog/:id" element={<ProductDetailPage />} />
       <Route path="/basket" element={<BasketPage />} />
     </Routes>
   </>
