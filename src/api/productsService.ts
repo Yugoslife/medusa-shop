@@ -1,8 +1,21 @@
-import http from './http';
+// src/api/productsService.ts
+import http from './http'
 
-export interface Product { id: string; title: string; }
+/** Модель продукта */
+export interface Product {
+  id: string
+  title: string
+  price?: number
+}
 
-export async function fetchProducts(): Promise<Product[]> {
-  const { data } = await http.get<Product[]>('/products');
-  return data;
+/** Получить все продукты (GET /products) */
+export async function getAllProducts(): Promise<Product[]> {
+  const { data } = await http.get<Product[]>('/products')
+  return data
+}
+
+/** Получить продукт по ID (GET /products/:id) */
+export async function getProductById(id: string): Promise<Product> {
+  const { data } = await http.get<Product>(`/products/${id}`)
+  return data
 }

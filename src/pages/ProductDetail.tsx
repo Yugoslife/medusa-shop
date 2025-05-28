@@ -30,12 +30,12 @@ const ProductDetailPage: React.FC = () => {
 
       {/* Вот она, кнопка «Add to cart» */}
       <button
-        data-testid="add-to-cart"
-        className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
-        onClick={() => {
-          addItem(product.id, 1)
-          navigate('/basket')
-        }}
+         data-testid="add-to-cart"
+         className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
+         onClick={() => {
+          addItem(product.id, 1)       // POST /basket
+           navigate('/basket')         // переходим на нашу страницу корзины
+         }}
       >
         Add to cart
       </button>
