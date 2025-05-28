@@ -1,32 +1,43 @@
-import http from './http';
-const API_URL = 'http://localhost:4000'
+// src/api/basketService.ts
+import http from './http'
 
+/** Интерфейс элемента корзины */
+export interface BasketItem {
+  id: number
+  productId: string
+  quantity: number
+}
 
-
-export interface BasketItem { productId: string; quantity: number; }
-
+/** Получить содержимое корзины (GET /carts) */
 export async function fetchBasket(): Promise<BasketItem[]> {
-  const { data } = await http.get<BasketItem[]>('/basket');
-  return data;
+  const { data } = await http.get<{ id: number; product_id: string; quantity: number }[]>('/carts')
+  return data.map(item => ({
+    id: item.id,
+    productId: item.product_id,
+    quantity: item.quantity,
+  }))
 }
 
-export async function addItem(productId: string, quantity: number) {
-  const res = await fetch(`${API_URL}/carts`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ product_id: productId, quantity }),
-  })
-  return res.json()
+/** Добавить товар в корзину (POST /carts) */
+export async function addItem(productId: string, quantity: number): Promise<BasketItem> {
+  const { data } = await http.post<{ id: number; product_id: string; quantity: number }>(
+    '/carts',
+    { product_id: productId, quantity }
+  )
+  return {
+    id: data.id,
+    productId: data.product_id,
+    quantity: data.quantity,
+  }
 }
 
-export async function getCart() { /* … */ }
-export async function clearCart()   { /* … */ }
-
-
-export async function addToBasket(item: BasketItem): Promise<void> {
-  await http.post('/basket', item);
+/** Удалить один товар из корзины (DELETE /carts/:id) */
+export async function removeFromBasket(id: number): Promise<void> {
+  await http.delete(`/carts/${id}`)
 }
 
-export async function removeFromBasket(productId: string): Promise<void> {
-  await http.delete(`/basket/${productId}`);
+/** Очистить всю корзину */
+export async function clearCart(): Promise<void> {
+  const items = await fetchBasket()
+  await Promise.all(items.map(i => http.delete(`/carts/${i.id}`)))
 }
